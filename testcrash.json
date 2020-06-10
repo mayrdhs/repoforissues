@@ -1,0 +1,63 @@
+{
+	"162ffb2d42a1f7145c2496f8ed716827.162ffb2d42a1f7145c2496f8ed716827": {
+		"Count": 10,
+		"CrashEntry": {
+			"entry": {
+				"info": {
+					"stack": [
+						{
+							"address": 93824994093801,
+							"symbol": "IpfixCsExporter::performShutdown()",
+							"module": "/home/qdl/fuzzing/vermont-release/vermont"
+                        }
+                        ],
+					"registers": [
+						{
+							"name": "rax",
+							"value": 0
+						},
+						{
+							"name": "rbx",
+							"value": 93824995509632
+                        }
+                        ],
+					"disassembly": [
+						{
+							"address": 93824994093783,
+							"text": "mov rdi,rbx"
+						},
+						{
+							"address": 93824994093786,
+							"text": "call 0x55555571a250 \u003c_ZN15IpfixCsExporter9closeFileEv\u003e"
+						}],
+					"faulting_insn": {
+						"address": 93824994093801,
+						"text": "mov rax,QWORD PTR [rdi]"
+					},
+					"faulting_frame": {
+						"address": 93824994093801,
+						"symbol": "IpfixCsExporter::performShutdown()",
+						"module": "/home/qdl/fuzzing/vermont-release/vermont"
+					},
+					"hash": "162ffb2d42a1f7145c2496f8ed716827.162ffb2d42a1f7145c2496f8ed716827",
+					"classification": "PROBABLY_NOT_EXPLOITABLE",
+					"extra": [
+						"Description: Access violation near NULL on source operand",
+						"Short description: SourceAvNearNull (16/22)",
+						"Explanation: The target crashed on an access violation at an address matching the source operand of the current instruction. This likely indicates a read access violation, which may mean the application crashed on a simple NULL dereference to data structure that has no immediate effect on control of the processor."
+					]
+				},
+				"timestamp": 1589534159,
+				"orig_filename": "/home/qdl/fuzzing/crashwalk/all/id:000038,sig:11,src:000152,op:flip1,pos:785",
+				"sha1": "8oVZrDNVSZ+1fwUF6zwvSFpJj74=",
+				"command": [
+					"/home/qdl/fuzzing/vermont-release/vermont",
+					"-f",
+					"/home/qdl/fuzzing/crashwalk/all/id:000038,sig:11,src:000152,op:flip1,pos:785"
+				]
+			},
+			"data": null
+		},
+		"Uname": "Linux ubuntu 5.3.0-53-generic #47-Ubuntu SMP Thu May 7 12:18:16 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux\n"
+	}
+}
