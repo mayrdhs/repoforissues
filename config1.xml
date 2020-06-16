@@ -1,0 +1,60 @@
+<ipfixConfig>
+	<ipfixReceiverFile id="1">
+		<!--
+		<packetFileBasename>/data/fuzzing/ipfixfuzz_out/.cur_input</packetFileBasename>
+		-->
+		<packetFileBasename>data/fuzzing/ipfixfuzz_out/f4/hangs/id:000004,src:000002,op:havoc,rep:16</packetFileBasename>
+		<ignoreTimestamps>true</ignoreTimestamps>
+		<offlineSpeed>-1</offlineSpeed>
+		<next>2</next>
+	</ipfixReceiverFile>
+
+	<ipfixQueue id="2">
+		<maxSize>10</maxSize>
+		<next>3</next>
+	</ipfixQueue>
+
+	<ipfixAggregator id="3">
+		<rule>
+			<templateId>998</templateId>
+			<biflowAggregation>1</biflowAggregation>				
+			<flowKey>
+				<ieName>sourceIPv4Address</ieName>
+			</flowKey>
+			<flowKey>
+				<ieName>destinationIPv4Address</ieName>
+			</flowKey>
+			<flowKey>
+				<ieName>protocolIdentifier</ieName>
+			</flowKey>
+			<flowKey>
+				<ieName>sourceTransportPort</ieName>
+			</flowKey>
+			<flowKey>
+				<ieName>destinationTransportPort</ieName>
+			</flowKey>
+		</rule>
+		<expiration>
+			<inactiveTimeout unit="sec">1</inactiveTimeout>
+			<activeTimeout unit="sec">1</activeTimeout>
+		</expiration>
+		<pollInterval unit="msec">1000</pollInterval>
+		<next>4</next>
+	</ipfixAggregator>	
+
+	<ipfixQueue id="4">
+		<maxSize>10</maxSize>
+		<next>5,6</next>
+	</ipfixQueue>
+
+	<ipfixPrinter id="5">
+		<outputType>tree</outputType>
+	</ipfixPrinter>
+
+	<hostStatistics id= "6">
+		<subnet>192.168.0.0/16</subnet>
+		<addrFilter>src</addrFilter>
+		<logPath>/dev/null</logPath>
+	</hostStatistics>
+
+</ipfixConfig>
